@@ -3,15 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>GMY - ALCAP</title>
+    <link rel="stylesheet" href="css/alcap.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   </head>
   <body>
     <h1>ALCAP</h1>
-    <audio id="audio-coin" src="audio/coin.wav"></audio>
-    <p>Alfacoins: <span id="alfacoins"></span></p>
-    <button id="b0">b0</button>
-    <button id="aprimorar-clique">Aprimorar clique (<span id="preco-aprimorar-clique"></span>)</button>
-    <br>
-    <button id="audio">Audio</button>
+    <main>
+      <div id="alfacoins2">
+        <p>Alfacoins: <span id="alfacoins"></span></p>
+      </div>
+      <div id="b0" class="naoSelecionavel">Clique para plantar!</div>
+      <div id="aprimorar-clique" class="naoSelecionavel">Aprimorar clique</div>
+    </main>
     <script src="javascript/alcap.js" charset="utf-8"></script>
   </body>
 </html>
