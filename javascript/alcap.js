@@ -6,11 +6,13 @@ let plantarEl = document.querySelector('#plantar'),
 	precoAprimorarCliqueEl = document.querySelector('#aprimorar-clique > span'),
 	contratarAgricultoresEl = document.querySelector('#contratar-agricultores'),
 	precoContratarAgricultoresEl = document.querySelector('#contratar-agricultores > span'),
+	imgEl = document.querySelector('img'),
   alfacoins = 0,
   precoAprimorarClique = 50,
   valClique = 1,
 	alfacoinsAutomaticasPS = 0,
-	precoContratarAgricultores = 1000;
+	precoContratarAgricultores = 1000
+	conquistas = 0;
 
 //
 
@@ -42,6 +44,15 @@ else
   precoContratarAgricultores = JSON.parse(localStorage.getItem('precoContratarAgricultores'));
 precoContratarAgricultoresEl.innerHTML = precoContratarAgricultores;
 
+if(localStorage.getItem('conquistas') == null)
+  localStorage.setItem('conquistas', '0');
+else
+  conquistas = JSON.parse(localStorage.getItem('conquistas'));
+
+if(localStorage.getItem('conqALCAP1') == 'true') {
+	imgEl.src = '';
+}
+
 //
 
 plantarEl.addEventListener('click', function() {
@@ -66,8 +77,12 @@ aprimorarCliqueEl.addEventListener('click', function() {
 contratarAgricultoresEl.addEventListener('click', function() {
 	if(alfacoins >= precoContratarAgricultores) {
 		alfacoins -= precoContratarAgricultores;
-		if(alfacoinsAutomaticasPS == 0)	
+		if(alfacoinsAutomaticasPS == 0)	{
 			alfacoinsAutomaticasPS += 1;
+			conquistas += 1;
+      localStorage.setItem('conqALCAP2', 'true');
+      localStorage.setItem('conquistas', JSON.stringify(conquistas));
+		}
 		else
 			alfacoinsAutomaticasPS *= 3;
 		precoContratarAgricultores *= 4;
@@ -79,6 +94,13 @@ contratarAgricultoresEl.addEventListener('click', function() {
 	}
 });
 
+imgEl.addEventListener('click', function() {
+	imgEl.src = '';
+ 	conquistas += 1;
+	localStorage.setItem('conqALCAP1', 'true');
+  localStorage.setItem('conquistas', JSON.stringify(conquistas));
+});
+
 setInterval(function() {
   alfacoinsEl.innerHTML = alfacoins;
 	alfacoinsPSEl.innerHTML = alfacoinsAutomaticasPS;
@@ -87,6 +109,16 @@ setInterval(function() {
   localStorage.setItem('valClique', JSON.stringify(valClique));
 	localStorage.setItem('precoContratarAgricultores', JSON.stringify(precoContratarAgricultores));
 	localStorage.setItem('alfacoinsAutomaticasPS', JSON.stringify(alfacoinsAutomaticasPS));
+	if(alfacoins >= 10000) {
+		conquistas += 1;
+		localStorage.setItem('conqALCAP3', 'true');
+		localStorage.setItem('conquistas', JSON.stringify(conquistas));
+	}
+	if(alfacoins >= 1000000) {
+		conquistas += 1;
+		localStorage.setItem('conqALCAP4', 'true');
+		localStorage.setItem('conquistas', JSON.stringify(conquistas));
+	}
 }, 10);
 
 setInterval(function() {
