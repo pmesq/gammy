@@ -1,9 +1,12 @@
 let b0El = document.querySelector('#b0'),
   alfacoinsEl = document.querySelector('#alfacoins'),
   aprimorarCliqueEl = document.querySelector('#aprimorar-clique'),
+	contratarAgricultoresEl = document.querySelector('#contratar-agricultores'),
   alfacoins = 0,
-  precoAprimorarClique = 100,
-  valClique = 1;
+  precoAprimorarClique = 50,
+  valClique = 1,
+	alfacoinsAutomaticasPS = 0,
+	precoContratarAgricultores = 1000;
 
 if(localStorage.getItem('alfacoins') == null)
   localStorage.setItem('alfacoins', '0');
@@ -16,20 +19,50 @@ else
   valClique = JSON.parse(localStorage.getItem('valClique'));
 
 if(localStorage.getItem('precoAprimorarClique') == null)
-  localStorage.setItem('precoAprimorarClique', '100');
+  localStorage.setItem('precoAprimorarClique', '50');
 else
   precoAprimorarClique = JSON.parse(localStorage.getItem('precoAprimorarClique'));
 
+if(localStorage.getItem('alfacoinsAutomaticasPS') == null)
+  localStorage.setItem('alfacoinsAutomaticasPS', '0');
+else
+  alfacoinsAutomaticasPS = JSON.parse(localStorage.getItem('alfacoinsAutomaticasPS'));
+
+if(localStorage.getItem('precoContratarAgricultores') == null)
+  localStorage.setItem('precoContratarAgricultores', '1000');
+else
+  precoContratarAgricultores = JSON.parse(localStorage.getItem('precoContratarAgricultores'));
+
 b0El.addEventListener('click', function() {
   alfacoins += valClique;
+	b0El.classList.toggle('saltitante');
 });
 
 aprimorarCliqueEl.addEventListener('click', function() {
   if(alfacoins >= precoAprimorarClique) {
     alfacoins -= precoAprimorarClique;
-    precoAprimorarClique *= 10;
-    valClique *= 5;
+    precoAprimorarClique *= 3;
+    valClique *= 2;
+		aprimorarCliqueEl.classList.add('saltitante');
+		setTimeout(function() {
+			aprimorarCliqueEl.classList.remove('saltitante');
+		}, 200);
   }
+});
+
+contratarAgricultoresEl.addEventListener('click', function() {
+	if(alfacoins >= precoContratarAgricultores) {
+		alfacoins -= precoContratarAgricultores;
+		if(alfacoinsAutomaticasPS == 0)	
+			alfacoinsAutomaticasPS += 1;
+		else
+			alfacoinsAutomaticasPS *= 3;
+		precoContratarAgricultores *= 4;
+		contratarAgricultoresEl.classList.add('saltitante');
+		setTimeout(function() {
+			contratarAgricultoresEl.classList.remove('saltitante');
+		}, 200);
+	}
 });
 
 setInterval(function() {
@@ -39,10 +72,6 @@ setInterval(function() {
   localStorage.setItem('valClique', JSON.stringify(valClique));
 }, 10);
 
-b0El.addEventListener('click', function(){
-  b0El.classList.toggle('saltitante');
-});
-
-aprimorarCliqueEl.addEventListener('click', function(){
-  aprimorarCliqueEl.classList.toggle('saltitante');
-});
+setInterval(function() {
+	alfacoins += alfacoinsAutomaticasPS;
+}, 1000);
