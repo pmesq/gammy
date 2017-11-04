@@ -42,7 +42,7 @@ body {
   text-align: center;
   padding: 2em;
   margin: 0 auto;
-  position: relative;
+  position: relative; 
   animation: voador 1s ease-out infinite alternate;
 }
 
@@ -54,54 +54,44 @@ body {
 
 #b0 {
   background-image: url(../imgs/pazinha1.png);
-  background-size: contain;
-  font-size: 28px;
-  color: darkgreen;
-  width: 6em;
-  height: 6em;
-  cursor: pointer;
-  border: 3px solid black;
-  border-radius: 20px;
-  margin-top: 2em;
-  text-align: left;
-  padding: 0.5em;
-  display: inline-block;
-  font-weight: bold;
-  position: relative;
 }
 
 #aprimorar-clique {
   background-image: url(../imgs/images.png), linear-gradient(90deg, gold, white);
   background-blend-mode: color-dodge;
-  background-size: contain;
-  font-size: 28px;
-  font-weight: bold;
-  width: 6em;
-  height: 6em;
-  cursor: pointer;
-  border: 3px solid black;
-  border-radius: 20px;
-  margin-top: 3em;
   margin-left: 1em;
-  text-align: left;
+}
+
+#contratar-agricultores {
+	background: url(../imgs/agricultor.gif), darkgreen;
+	color: white;
+  margin-left: 1em;
+}
+
+.botao {
+  -webkit-touch-callout: none;  /* iPhone OS, Safari */
+  -webkit-user-select: none;    /* Chrome, Safari 3 */
+  -khtml-user-select: none;     /* Safari 2 */
+  -moz-user-select: none;       /* Firefox */
+  -ms-user-select: none;        /* IE10+ */
+  user-select: none;            /* Possível implementação no futuro */
+	font-size: 28px;
+	width: 6em;
+	height: 6em;
+	cursor: pointer;
+	border: 3px solid black;
+  border-radius: 20px;
+	display: inline-block;
+  font-weight: bold;
   padding: 0.5em;
-  display: inline-block;
-  text-align: justify;
-  position: relative;
+	background-size: contain;
+	position: relative;
+	text-align: left;	
+  margin-top: 3em;
 }
 
 .saltitante {
   animation: salto 0.1s ease-in 2 alternate;
-}
-
-.naoSelecionavel {
-    -webkit-touch-callout: none;  /* iPhone OS, Safari */
-    -webkit-user-select: none;    /* Chrome, Safari 3 */
-    -khtml-user-select: none;     /* Safari 2 */
-    -moz-user-select: none;       /* Firefox */
-    -ms-user-select: none;        /* IE10+ */
-    user-select: none;            /* Possível implementação no futuro */
-    cursor: default;
 }
 
 @keyframes voador {
