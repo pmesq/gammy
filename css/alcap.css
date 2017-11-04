@@ -104,6 +104,14 @@ body {
   margin-top: 3em;
 }
 
+img {
+	position:	absolute;
+	bottom: 0px;
+	right: 0px;
+	width: 50px;
+	cursor: pointer;
+}
+
 .saltitante {
   animation: salto 0.1s ease-in 2 alternate;
 }
