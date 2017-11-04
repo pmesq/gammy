@@ -30,10 +30,11 @@ body {
 }
 
 
-#alfacoins2 {
+#div-alfacoins {
   width: 18em;
   height: 18em;
-  background-image: url(../imgs/alface2.png);
+  /*background-color: #e6e6e6;*/
+	background-image: linear-gradient(to right bottom, lightgreen, darkgreen);
   background-size: contain;
   border: 1px black solid;
   border-radius: 100%;
@@ -46,13 +47,27 @@ body {
   animation: voador 1s ease-out infinite alternate;
 }
 
+#alfacoinsPS {
+	font-size: .9em;
+}
+
 #alfacoins {
+	font-size: 1em;
+}
+
+#alfacoins > span {
   display: block;
   font-size: 3em;
   padding-top: 20%;
 }
 
-#b0 {
+#alfacoinsPS > span{
+  display: block;
+  font-size: 2em;
+  padding-top: 20%;
+}
+
+#plantar {
   background-image: url(../imgs/pazinha1.png);
 }
 
@@ -63,8 +78,7 @@ body {
 }
 
 #contratar-agricultores {
-	background: url(../imgs/agricultor.gif), darkgreen;
-	color: white;
+	background-image: url(../imgs/agricultor.png);
   margin-left: 1em;
 }
 
