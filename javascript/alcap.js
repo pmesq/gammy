@@ -1,12 +1,18 @@
-let b0El = document.querySelector('#b0'),
-  alfacoinsEl = document.querySelector('#alfacoins'),
+let plantarEl = document.querySelector('#plantar'),
+	valCliqueEl = document.querySelector('#plantar > span'),
+  alfacoinsEl = document.querySelector('#alfacoins > span'),
+	alfacoinsPSEl = document.querySelector('#alfacoinsPS > span'),
   aprimorarCliqueEl = document.querySelector('#aprimorar-clique'),
+	precoAprimorarCliqueEl = document.querySelector('#aprimorar-clique > span'),
 	contratarAgricultoresEl = document.querySelector('#contratar-agricultores'),
+	precoContratarAgricultoresEl = document.querySelector('#contratar-agricultores > span'),
   alfacoins = 0,
   precoAprimorarClique = 50,
   valClique = 1,
 	alfacoinsAutomaticasPS = 0,
 	precoContratarAgricultores = 1000;
+
+//
 
 if(localStorage.getItem('alfacoins') == null)
   localStorage.setItem('alfacoins', '0');
@@ -17,11 +23,13 @@ if(localStorage.getItem('valClique') == null)
   localStorage.setItem('valClique', '1');
 else
   valClique = JSON.parse(localStorage.getItem('valClique'));
+valCliqueEl.innerHTML = valClique;
 
 if(localStorage.getItem('precoAprimorarClique') == null)
   localStorage.setItem('precoAprimorarClique', '50');
 else
   precoAprimorarClique = JSON.parse(localStorage.getItem('precoAprimorarClique'));
+precoAprimorarCliqueEl.innerHTML = precoAprimorarClique;
 
 if(localStorage.getItem('alfacoinsAutomaticasPS') == null)
   localStorage.setItem('alfacoinsAutomaticasPS', '0');
@@ -32,17 +40,22 @@ if(localStorage.getItem('precoContratarAgricultores') == null)
   localStorage.setItem('precoContratarAgricultores', '1000');
 else
   precoContratarAgricultores = JSON.parse(localStorage.getItem('precoContratarAgricultores'));
+precoContratarAgricultoresEl.innerHTML = precoContratarAgricultores;
 
-b0El.addEventListener('click', function() {
+//
+
+plantarEl.addEventListener('click', function() {
   alfacoins += valClique;
-	b0El.classList.toggle('saltitante');
+	plantarEl.classList.toggle('saltitante');
 });
 
 aprimorarCliqueEl.addEventListener('click', function() {
   if(alfacoins >= precoAprimorarClique) {
     alfacoins -= precoAprimorarClique;
     precoAprimorarClique *= 3;
+		precoAprimorarCliqueEl.innerHTML = precoAprimorarClique;
     valClique *= 2;
+		valCliqueEl.innerHTML = valClique;
 		aprimorarCliqueEl.classList.add('saltitante');
 		setTimeout(function() {
 			aprimorarCliqueEl.classList.remove('saltitante');
@@ -58,6 +71,7 @@ contratarAgricultoresEl.addEventListener('click', function() {
 		else
 			alfacoinsAutomaticasPS *= 3;
 		precoContratarAgricultores *= 4;
+		precoContratarAgricultoresEl.innerHTML = precoContratarAgricultores;
 		contratarAgricultoresEl.classList.add('saltitante');
 		setTimeout(function() {
 			contratarAgricultoresEl.classList.remove('saltitante');
@@ -67,9 +81,12 @@ contratarAgricultoresEl.addEventListener('click', function() {
 
 setInterval(function() {
   alfacoinsEl.innerHTML = alfacoins;
+	alfacoinsPSEl.innerHTML = alfacoinsAutomaticasPS;
   localStorage.setItem('alfacoins', JSON.stringify(alfacoins));
   localStorage.setItem('precoAprimorarClique', JSON.stringify(precoAprimorarClique));
   localStorage.setItem('valClique', JSON.stringify(valClique));
+	localStorage.setItem('precoContratarAgricultores', JSON.stringify(precoContratarAgricultores));
+	localStorage.setItem('alfacoinsAutomaticasPS', JSON.stringify(alfacoinsAutomaticasPS));
 }, 10);
 
 setInterval(function() {
