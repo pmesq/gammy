@@ -11,4 +11,4 @@ if(localStorage.getItem('conquistas') == null)
   localStorage.setItem('conquistas', '0');
 else
   conquistas = JSON.parse(localStorage.getItem('conquistas'));
-conquistasEl.innerHTML = 'Conquistas: ' + conquistas + '/3';
+conquistasEl.innerHTML = 'Conquistas: ' + conquistas + '/7';
