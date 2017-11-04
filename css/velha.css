@@ -1,6 +1,7 @@
 main > img {
   max-width: 192px;
   border: 1px solid black;
+  cursor: pointer;
 }
 
 html {
