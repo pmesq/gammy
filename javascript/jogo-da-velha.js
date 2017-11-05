@@ -1,7 +1,8 @@
 let tab = new Array(9),
   imgEl = document.querySelectorAll('img'),
   statusEl = document.querySelector('#status'),
-  recomecarEl = document.querySelector('#recomecar');
+  recomecarEl = document.querySelector('#recomecar'),
+	notConqEl = document.querySelector('#notificacao-conquista'),
   vez = false,
   contJDV = 0,
   conquistas = 0,
@@ -18,7 +19,7 @@ else
 if(localStorage.getItem('conquistas') == null)
   localStorage.setItem('conquistas', '0');
 else
-  conquistas = localStorage.getItem('conquistas');
+  conquistas = JSON.parse(localStorage.getItem('conquistas'));
 
 imgEl.forEach(function(item, i) {
   item.addEventListener('mousedown', function() {
@@ -34,23 +35,29 @@ imgEl.forEach(function(item, i) {
       if(resultado() != 0) {
         contJDV += 1;
         localStorage.setItem('contJDV', JSON.stringify(contJDV));
+        for(img of imgEl) 
+          img.style.cursor = 'default';
         if(contJDV == 5) {
           conquistas += 1;
           localStorage.setItem('conqJDV1', 'true');
           localStorage.setItem('conquistas', JSON.stringify(conquistas));
+          notificarConquista('Eu começo primeiro!');
         } else if(contJDV == 25) {
           conquistas += 1;
           localStorage.setItem('conqJDV2', 'true');
           localStorage.setItem('conquistas', JSON.stringify(conquistas));
+          notificarConquista('XXX');
         } else if(contJDV == 100) {
           conquistas += 1;
           localStorage.setItem('conqJDV3', 'true');
           localStorage.setItem('conquistas', JSON.stringify(conquistas));
+          notificarConquista('Jogo do Mestre');
         }
       }
     }
   });
 });
+
 function resultado() {
   run = false;
   for(let i = 0; i < 2; i++) {
@@ -72,13 +79,27 @@ function resultado() {
   }
   return -1;
 };
+
 recomecarEl.addEventListener('click', function() {
+  
   for(let i = 0; i < 9; i++)
     tab[i] = -1;
   for(let img of imgEl) {
+    img.style.cursor = 'pointer';
     img.src = 'imgs/jdv-branco.png';
   }
   vez = false;
   statusEl.innerHTML = 'Vez do jogador X';
   run = true;
 });
+
+function notificarConquista(nomeConquista) {
+	notConqEl.innerHTML = '<p>Nova conquista desbloqueada!<br>' + nomeConquista + '</p>';
+	notConqEl.style.padding = '10px';
+	notConqEl.style.borderWidth = '1px';
+	setTimeout(function() {
+		notConqEl.style.padding = '0';
+		notConqEl.style.borderWidth = '0';
+		notConqEl.innerHTML = '';
+	}, 5000);
+}
