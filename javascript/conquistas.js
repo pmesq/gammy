@@ -31,9 +31,9 @@ else
   lockedEl.innerHTML += '<div class="conq alcap"><h3>Patrão</h3><p>Contratar seu primeiro agricultor</p></div>';
 
 if(JSON.parse(localStorage.getItem('conqALCAP3')))
-  unlockedEl.innerHTML += '<div class="conq alcap"><h3>Big Plantation</h3><p>Possuir 10000 AlfaceCoins</p></div>';
+  unlockedEl.innerHTML += '<div class="conq alcap"><h3>Alfacecapitalista</h3><p>Possuir 10000 AlfaceCoins</p></div>';
 else
-  lockedEl.innerHTML += '<div class="conq alcap"><h3>Big Plantation</h3><p>Possuir 10000 AlfaceCoins</p></div>';
+  lockedEl.innerHTML += '<div class="conq alcap"><h3>Alfacecapitalista</h3><p>Possuir 10000 AlfaceCoins</p></div>';
 
 if(JSON.parse(localStorage.getItem('conqALCAP4')))
   unlockedEl.innerHTML += '<div class="conq alcap"><h3>Alfacilionário</h3><p>Possuir 1000000 de AlfaceCoins</p></div>';
