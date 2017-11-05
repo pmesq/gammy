@@ -7,6 +7,7 @@ let plantarEl = document.querySelector('#plantar'),
 	contratarAgricultoresEl = document.querySelector('#contratar-agricultores'),
 	precoContratarAgricultoresEl = document.querySelector('#contratar-agricultores > span'),
 	imgEl = document.querySelector('img'),
+	notConqEl = document.querySelector('#notificacao-conquista');
   alfacoins = 0,
   precoAprimorarClique = 50,
   valClique = 1,
@@ -75,52 +76,67 @@ aprimorarCliqueEl.addEventListener('click', function() {
 });
 
 contratarAgricultoresEl.addEventListener('click', function() {
-	if(alfacoins >= precoContratarAgricultores) {
-		alfacoins -= precoContratarAgricultores;
-		if(alfacoinsAutomaticasPS == 0)	{
-			alfacoinsAutomaticasPS += 1;
-			conquistas += 1;
+  if(alfacoins >= precoContratarAgricultores) {
+    alfacoins -= precoContratarAgricultores;
+    if(alfacoinsAutomaticasPS == 0)	{
+      alfacoinsAutomaticasPS += 1;
+      conquistas += 1;
       localStorage.setItem('conqALCAP2', 'true');
       localStorage.setItem('conquistas', JSON.stringify(conquistas));
-		}
-		else
-			alfacoinsAutomaticasPS *= 3;
-		precoContratarAgricultores *= 4;
-		precoContratarAgricultoresEl.innerHTML = precoContratarAgricultores;
-		contratarAgricultoresEl.classList.add('saltitante');
-		setTimeout(function() {
-			contratarAgricultoresEl.classList.remove('saltitante');
-		}, 200);
-	}
+      notificarConquista('Patrão');
+    }
+    else 
+      alfacoinsAutomaticasPS *= 3;
+    precoContratarAgricultores *= 4;
+    precoContratarAgricultoresEl.innerHTML = precoContratarAgricultores;
+    contratarAgricultoresEl.classList.add('saltitante');
+    setTimeout(function() {
+      contratarAgricultoresEl.classList.remove('saltitante');
+    }, 200);
+    }
 });
 
 imgEl.addEventListener('click', function() {
-	imgEl.src = '';
- 	conquistas += 1;
-	localStorage.setItem('conqALCAP1', 'true');
+  imgEl.src = '';
+  conquistas += 1;
+  localStorage.setItem('conqALCAP1', 'true');
   localStorage.setItem('conquistas', JSON.stringify(conquistas));
+  notificarConquista('Você me achou');	
 });
+
+function notificarConquista(nomeConquista) {
+  notConqEl.innerHTML = '<p>Nova conquista desbloqueada!<br>' + nomeConquista + '</p>';
+  notConqEl.style.padding = '10px';
+  notConqEl.style.borderWidth = '1px';
+  setTimeout(function() {
+    notConqEl.style.padding = '0';
+    notConqEl.style.borderWidth = '0';
+    notConqEl.innerHTML = '';
+  }, 5000);
+}
 
 setInterval(function() {
   alfacoinsEl.innerHTML = alfacoins;
-	alfacoinsPSEl.innerHTML = alfacoinsAutomaticasPS;
+  alfacoinsPSEl.innerHTML = alfacoinsAutomaticasPS;
   localStorage.setItem('alfacoins', JSON.stringify(alfacoins));
   localStorage.setItem('precoAprimorarClique', JSON.stringify(precoAprimorarClique));
   localStorage.setItem('valClique', JSON.stringify(valClique));
-	localStorage.setItem('precoContratarAgricultores', JSON.stringify(precoContratarAgricultores));
-	localStorage.setItem('alfacoinsAutomaticasPS', JSON.stringify(alfacoinsAutomaticasPS));
-	if(alfacoins >= 10000) {
-		conquistas += 1;
-		localStorage.setItem('conqALCAP3', 'true');
-		localStorage.setItem('conquistas', JSON.stringify(conquistas));
-	}
-	if(alfacoins >= 1000000) {
-		conquistas += 1;
-		localStorage.setItem('conqALCAP4', 'true');
-		localStorage.setItem('conquistas', JSON.stringify(conquistas));
-	}
+  localStorage.setItem('precoContratarAgricultores', JSON.stringify(precoContratarAgricultores));
+  localStorage.setItem('alfacoinsAutomaticasPS', JSON.stringify(alfacoinsAutomaticasPS));
+  if(alfacoins >= 10000) {
+    conquistas += 1;
+    localStorage.setItem('conqALCAP3', 'true');
+    localStorage.setItem('conquistas', JSON.stringify(conquistas));
+    notificarConquista('Alfacecapitalista');	
+  }
+  if(alfacoins >= 1000000) {
+    conquistas += 1;
+    localStorage.setItem('conqALCAP4', 'true');
+    localStorage.setItem('conquistas', JSON.stringify(conquistas));
+    notificarConquista('Alfacilionário');
+  }
 }, 10);
 
 setInterval(function() {
-	alfacoins += alfacoinsAutomaticasPS;
+  alfacoins += alfacoinsAutomaticasPS;
 }, 1000);
