@@ -21,9 +21,6 @@ h1 {
   font-size: 5em;
 }
 
-html {
-}
-
 body {
   background-image: url(../imgs/horta.jpg);
   background-size: cover;
@@ -33,8 +30,7 @@ body {
 #div-alfacoins {
   width: 18em;
   height: 18em;
-  /*background-color: #e6e6e6;*/
-	background-image: linear-gradient(to right bottom, lightgreen, darkgreen);
+  background-image: linear-gradient(to right bottom, lightgreen, darkgreen);
   background-size: contain;
   border: 1px black solid;
   border-radius: 100%;
@@ -78,7 +74,7 @@ body {
 }
 
 #contratar-agricultores {
-	background-image: url(../imgs/agricultor.png);
+  background-image: url(../imgs/agricultor.png);
   margin-left: 1em;
 }
 
@@ -89,18 +85,18 @@ body {
   -moz-user-select: none;       /* Firefox */
   -ms-user-select: none;        /* IE10+ */
   user-select: none;            /* Possível implementação no futuro */
-	font-size: 28px;
-	width: 6em;
-	height: 6em;
-	cursor: pointer;
-	border: 3px solid black;
+  font-size: 28px;
+  width: 6em;
+  height: 6em;
+  cursor: pointer;
+  border: 3px solid black;
   border-radius: 20px;
-	display: inline-block;
+  display: inline-block;
   font-weight: bold;
   padding: 0.5em;
-	background-size: contain;
-	position: relative;
-	text-align: left;	
+  background-size: contain;
+  position: relative;
+  text-align: left;	
   margin-top: 3em;
 }
 
@@ -108,8 +104,19 @@ img {
 	position:	absolute;
 	bottom: 0px;
 	right: 0px;
-	width: 50px;
+	width: 2em;
 	cursor: pointer;
+}
+
+#notificacao-conquista {
+	position: absolute;
+	background-color: #e6e6e6;
+	transition: all 200ms ease;
+	bottom: 0;
+	border: 0 solid black;
+	right: 0;
+	text-align: left;
+	font-size: 1.5em;
 }
 
 .saltitante {
@@ -125,3 +132,4 @@ img {
   from {top: 0;}
   to   {top: -20px;}
 }
+	bottom: 0;
