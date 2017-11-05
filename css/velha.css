@@ -14,7 +14,14 @@ html {
 }
 
 #status {
-  color: white;
+  color: black;
+  padding: 0.5em;
+  font-size: 24px;
+  display: inline-block;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 15px;
+  font-weight: bold;
 }
 
 main {
@@ -33,6 +40,18 @@ main {
   display: inline;
   cursor: pointer;
   font-weight: bold;
+}
+
+#notificacao-conquista {
+	position: absolute;
+	background-color: #e6e6e6;
+	transition: all 200ms ease;
+	bottom: 0;
+	border: 0 solid black;
+	right: 0;
+	text-align: left;
+	font-size: 24px;
+  color: black;
 }
 
 .naoSelecionavel {
