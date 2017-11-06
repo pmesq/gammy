@@ -74,6 +74,7 @@ main {
   float: left;
   margin-left: 12px;
   margin-top: 12px;
+  cursor: pointer;
 }
 
 .info {
