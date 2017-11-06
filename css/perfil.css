@@ -1,0 +1,37 @@
+body {
+  background-color: #390652;
+  font-size: 1.5em;
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: #30b72c;
+  position: relative;
+  display: block;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+a:hover {
+  animation: pulsando 650ms ease-out infinite alternate;
+}
+
+@keyframes pulsando {
+  from {font-size: 1em;}
+  to {font-size: 1.2em;}
+}
+
+input {
+  width: 33%;
+  height: 36px;
+  text-align: justify;
+  margin-top: 12px;
+}
+
+label {
+  font-size: 0.8em;
+  text-align: left;
+}

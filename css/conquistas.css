@@ -1,14 +1,28 @@
 body {
 	background-color: #2c007a;
 	color: white;
+	text-align: center;
+	font-family: 'Press Start 2P', cursive;
+}
+
+h1 {
+	font-size: 3em;
+	font-family: 'Press Start 2P', cursive;
+}
+
+main {
+	width: 90%;
+	height: 99%;
+	margin: 0 auto;
+	font-size: 1.5em;
 }
 
 .conq {
 	border-radius: 5px;
 	padding-left: 10px;
 	border: 2px solid white;
-	margin: 10px;	
-	width: 33%;
+	margin: 10px;
+	width: auto;
 }
 
 .jdv {
@@ -19,3 +33,9 @@ body {
 	background-color: green;
 }
 
+#unlocked h2 {
+	color: lime;
+}
+#locked h2 {
+ 	color: red;
+}
