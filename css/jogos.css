@@ -1,0 +1,62 @@
+body, html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #28073d;
+}
+
+h1 {
+  font-size: 3em;
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+}
+
+html {
+  text-align: center;
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2em;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 2em;
+  position: relative;
+  margin-right: 1em;
+  display: inline-block;
+  color: white;
+}
+
+a:hover {
+  animation: voador 0.75s ease-in infinite alternate;
+}
+
+img {
+  width: 8em;
+  height: auto;
+  border: white 1px solid;
+  margin: 0 auto;
+  margin-left: 1em;
+}
+
+.jogo {
+  display: inline-block;
+  text-align: center;
+  font-size: 1em;
+}
+
+main {
+  width: 80%;
+  margin-top: 5em;
+  margin: 0 auto;
+}
+
+@keyframes voador {
+  from {top: -10px;}
+  to   {top: 30px;}
+}

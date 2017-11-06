@@ -27,6 +27,7 @@ html {
 body {
   background-image: url(../imgs/horta.jpg);
   background-size: cover;
+  background-attachment: fixed;
 }
 
 
@@ -43,7 +44,7 @@ body {
   text-align: center;
   padding: 2em;
   margin: 0 auto;
-  position: relative; 
+  position: relative;
   animation: voador 1s ease-out infinite alternate;
 }
 
@@ -100,7 +101,7 @@ body {
   padding: 0.5em;
 	background-size: contain;
 	position: relative;
-	text-align: left;	
+	text-align: left;
   margin-top: 3em;
 }
 
