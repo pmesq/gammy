@@ -11,6 +11,8 @@ body {
 
 h1 {
   font-size: 3em;
+  color: white;
+  font-family: 'Press Start 2P', cursive;
 }
 
 html {
@@ -35,7 +37,7 @@ a:hover {
 }
 
 img {
-  width: 100%;
+  width: 8em;
   height: auto;
   border: white 1px solid;
   margin: 0 auto;
@@ -46,14 +48,12 @@ div {
   display: inline-block;
   text-align: center;
   font-size: 1em;
-  width: 40%;
 }
 
 #link-gammy {
   font-size: 1em;
   margin-top: 1em;
   margin-bottom: 1em;
-  color: green;
 }
 
 #link-gammy:hover {
