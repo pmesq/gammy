@@ -44,10 +44,20 @@ img {
   margin-left: 1em;
 }
 
-.jogo {
+div {
   display: inline-block;
   text-align: center;
   font-size: 1em;
+}
+
+#link-gammy {
+  font-size: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#link-gammy:hover {
+  animation: none;
 }
 
 main {
