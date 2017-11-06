@@ -66,3 +66,29 @@ a:hover {
 main {
   margin: 0 auto;
 }
+
+#botao-fechar-info {
+  font-size: 24px;
+  background-image: linear-gradient(90deg, #f73b5d, #fc1e46);
+  font-weight: bold;
+  float: left;
+  margin-left: 12px;
+  margin-top: 12px;
+}
+
+.info {
+  background-color: lightgrey;
+  color: black;
+  border: white 1px solid;
+  width: 35%;
+  margin-left: 32.5%;
+  position: relative;
+  top: -15em;
+  animation: flutua 1s ease-out infinite alternate;
+  border-radius: 12px;
+}
+
+@keyframes flutua {
+  from {top: -16em;}
+  to {top: -14em;}
+}
