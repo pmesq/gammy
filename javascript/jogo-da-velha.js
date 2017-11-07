@@ -2,10 +2,9 @@ let tab = new Array(9),
   imgEl = document.querySelectorAll('img'),
   statusEl = document.querySelector('#status'),
   recomecarEl = document.querySelector('#recomecar'),
-	notConqEl = document.querySelector('#notificacao-conquista'),
+  notConqEl = document.querySelector('#notificacao-conquista'),
   vez = false,
   contJDV = 0,
-  conquistas = 0,
   run = true;
 
 for(let i = 0; i < 9; i++)
@@ -15,11 +14,6 @@ if(localStorage.getItem('contJDV') == null)
   localStorage.setItem('contJDV', '0');
 else
   contJDV = JSON.parse(localStorage.getItem('contJDV'));
-
-if(localStorage.getItem('conquistas') == null)
-  localStorage.setItem('conquistas', '0');
-else
-  conquistas = JSON.parse(localStorage.getItem('conquistas'));
 
 imgEl.forEach(function(item, i) {
   item.addEventListener('mousedown', function() {
@@ -38,19 +32,13 @@ imgEl.forEach(function(item, i) {
         for(img of imgEl) 
           img.style.cursor = 'default';
         if(contJDV == 5) {
-          conquistas += 1;
           localStorage.setItem('conqJDV1', 'true');
-          localStorage.setItem('conquistas', JSON.stringify(conquistas));
           notificarConquista('Eu começo primeiro!');
         } else if(contJDV == 25) {
-          conquistas += 1;
           localStorage.setItem('conqJDV2', 'true');
-          localStorage.setItem('conquistas', JSON.stringify(conquistas));
           notificarConquista('XXX');
         } else if(contJDV == 100) {
-          conquistas += 1;
           localStorage.setItem('conqJDV3', 'true');
-          localStorage.setItem('conquistas', JSON.stringify(conquistas));
           notificarConquista('Jogo do Mestre');
         }
       }

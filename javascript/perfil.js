@@ -14,8 +14,11 @@ if(localStorage.getItem('desc') == null)
 else
   descEl.innerHTML = localStorage.getItem('desc');
 
-if(localStorage.getItem('conquistas') == null)
-  localStorage.setItem('conquistas', '0');
-else
-  conquistas = JSON.parse(localStorage.getItem('conquistas'));
+if(localStorage.getItem('conqJDV1') == 'true') conquistas++;
+if(localStorage.getItem('conqJDV2') == 'true') conquistas++;
+if(localStorage.getItem('conqJDV3') == 'true') conquistas++;
+if(localStorage.getItem('conqALCAP1') == 'true') conquistas++;
+if(localStorage.getItem('conqALCAP2') == 'true') conquistas++;
+if(localStorage.getItem('conqALCAP3') == 'true') conquistas++;
+if(localStorage.getItem('conqALCAP4') == 'true') conquistas++;
 conquistasEl.innerHTML = 'Conquistas: ' + conquistas + '/7';

@@ -1,19 +1,18 @@
 let plantarEl = document.querySelector('#plantar'),
-	valCliqueEl = document.querySelector('#plantar > span'),
+  valCliqueEl = document.querySelector('#plantar > span'),
   alfacoinsEl = document.querySelector('#alfacoins > span'),
-	alfacoinsPSEl = document.querySelector('#alfacoinsPS > span'),
+  alfacoinsPSEl = document.querySelector('#alfacoinsPS > span'),
   aprimorarCliqueEl = document.querySelector('#aprimorar-clique'),
-	precoAprimorarCliqueEl = document.querySelector('#aprimorar-clique > span'),
-	contratarAgricultoresEl = document.querySelector('#contratar-agricultores'),
-	precoContratarAgricultoresEl = document.querySelector('#contratar-agricultores > span'),
-	imgEl = document.querySelector('img'),
-	notConqEl = document.querySelector('#notificacao-conquista'),
+  precoAprimorarCliqueEl = document.querySelector('#aprimorar-clique > span'),
+  contratarAgricultoresEl = document.querySelector('#contratar-agricultores'),
+  precoContratarAgricultoresEl = document.querySelector('#contratar-agricultores > span'),
+  imgEl = document.querySelector('img'),
+  notConqEl = document.querySelector('#notificacao-conquista'),
   alfacoins = 0,
   precoAprimorarClique = 50,
   valClique = 1,
-	alfacoinsAutomaticasPS = 0,
-	precoContratarAgricultores = 1000
-	conquistas = 0;
+  alfacoinsAutomaticasPS = 0,
+  precoContratarAgricultores = 1000;
 
 //
 
@@ -45,14 +44,7 @@ else
   precoContratarAgricultores = JSON.parse(localStorage.getItem('precoContratarAgricultores'));
 precoContratarAgricultoresEl.innerHTML = precoContratarAgricultores;
 
-if(localStorage.getItem('conquistas') == null)
-  localStorage.setItem('conquistas', '0');
-else
-  conquistas = JSON.parse(localStorage.getItem('conquistas'));
-
-if(localStorage.getItem('conqALCAP1') == 'true') {
-	imgEl.src = '';
-}
+if(localStorage.getItem('conqALCAP1') == 'true') imgEl.src = '';
 
 //
 
@@ -80,9 +72,7 @@ contratarAgricultoresEl.addEventListener('click', function() {
 		alfacoins -= precoContratarAgricultores;
 		if(alfacoinsAutomaticasPS == 0)	{
 			alfacoinsAutomaticasPS += 1;
-			conquistas += 1;
       localStorage.setItem('conqALCAP2', 'true');
-      localStorage.setItem('conquistas', JSON.stringify(conquistas));
 			notificarConquista('Patrão');
 		}
 		else
@@ -98,9 +88,7 @@ contratarAgricultoresEl.addEventListener('click', function() {
 
 imgEl.addEventListener('click', function() {
 	imgEl.src = '';
- 	conquistas += 1;
 	localStorage.setItem('conqALCAP1', 'true');
-  localStorage.setItem('conquistas', JSON.stringify(conquistas));
 	notificarConquista('Você me achou');	
 });
 
@@ -124,15 +112,11 @@ setInterval(function() {
 	localStorage.setItem('precoContratarAgricultores', JSON.stringify(precoContratarAgricultores));
 	localStorage.setItem('alfacoinsAutomaticasPS', JSON.stringify(alfacoinsAutomaticasPS));
 	if(alfacoins >= 10000 && localStorage.getItem('conqALCAP3') != 'true') {
-		conquistas += 1;
 		localStorage.setItem('conqALCAP3', 'true');
-		localStorage.setItem('conquistas', JSON.stringify(conquistas));
 		notificarConquista('Alfacecapitalista');	
 	}
 	if(alfacoins >= 1000000 && localStorage.getItem('conqALCAP4') != 'true') {
-		conquistas += 1;
 		localStorage.setItem('conqALCAP4', 'true');
-		localStorage.setItem('conquistas', JSON.stringify(conquistas));
 		notificarConquista('Alfacilionário');
 	}
 }, 10);
