@@ -69,7 +69,7 @@ main {
 
 #botao-fechar-info {
   font-size: 24px;
-  background-image: linear-gradient(90deg, #f73b5d, #fc1e46);
+  background: red;
   font-weight: bold;
   float: left;
   margin-left: 12px;
@@ -85,11 +85,5 @@ main {
   margin-left: 32.5%;
   position: relative;
   top: -15em;
-  animation: flutua 1s ease-out infinite alternate;
   border-radius: 12px;
-}
-
-@keyframes flutua {
-  from {top: -16em;}
-  to {top: -14em;}
 }
