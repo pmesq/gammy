@@ -1,5 +1,7 @@
 # Gammy
+
 [Página inicial](https://pedrocesarmesquita.github.io/Gammy/home)
+
 Site desenvolvido em 2017, para a disciplina de Programação Web do curso de Informática do CEFET-MG.
 
 ## Desenvolvedores
