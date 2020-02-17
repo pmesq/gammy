@@ -81,9 +81,10 @@ main {
   background-color: lightgrey;
   color: black;
   border: white 1px solid;
-  width: 35%;
-  margin-left: 32.5%;
-  position: relative;
-  top: -15em;
+  width: 75%;
+  margin-left: 12.5%;
+  padding: 20px;
+  position: fixed;
+  top: 20px;
   border-radius: 12px;
 }
